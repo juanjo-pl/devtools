@@ -1,0 +1,49 @@
+#!/bin/bash
+
+set -u 
+
+. $(dirname "$0")/inc/env-values.sh 
+. $(dirname "$0")/inc/functions.sh 
+
+export command_name=`basename $0` 
+
+function main() {
+    check_require_argument "$@"
+    if ($DEBUG); then 
+        pg_version=$(get_pgsql_version)
+        display_debug "Postgres version:$pg_version"
+    fi
+    drop_database $1
+}
+
+function drop_database() {
+    display_info "DROPING database $1 ..."
+    run_pgsql "DROP database IF EXISTS \"$1\";"
+}
+
+################################################################################
+# Help                                                                         #
+################################################################################
+USAGE_HELP="Usage: $command_name [database_name]"
+    
+DETAILED_HELP="
+NAME
+    $command_name
+
+SYNOPSIS
+    $command_name [database_name]
+
+DESCRIPTION
+
+    Drops a database in the local environment.
+
+    Syntax: $command_name [database_name]
+
+    Options:
+        -h       print usage
+        --help   Print htis help
+
+"
+
+# call to main execution
+main "$@"

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -u 
+
+COMMAND_PATH=$(dirname $0)
+DEVTOOLS_HOME=$(dirname $COMMAND_PATH)
+
+echo "DEVTOOLS_HOME: $DEVTOOLS_HOME"
+
+cd $DEVTOOLS_HOME
+
+docker compose -f $DEVTOOLS_HOME/docker-compose.yml up -d && \
+docker compose -f $DEVTOOLS_HOME/docker-compose.yml start 
