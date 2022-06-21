@@ -1,14 +1,23 @@
 # README
 
-Scripts to help development process.
+Scripts to help development process.  It has a docker composer with the following docker containers:
+
+* Postgres database
+* Kafka broker
+
 
 ## Commands
 
-* `devtools-create-database`
-* `devtools-drop-database`
-* `devtools-logs`
-* `devtools-start`
-* `devtools-stop`
+### Database related
+* `devtools-create-database`: Creates a database in the local environment.
+* `devtools-drop-database`: Drops a database in the local environment.
+* `devtools-psql`: Starts a psql session to connect to the local Postgres database.
+
+### Container Related
+* `devtools-start`: brings the dev environment up. 
+* `devtools-logs`: shows the container instances logs
+* `devtools-stop`: stops the dev environmet
+* `devtools-down`: stops and deletes the dev environement
 
 ## Requirements
 
