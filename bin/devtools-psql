@@ -11,14 +11,14 @@ function main() {
     check_require_argument "$@"
     
     export PGPASSWORD=$PGPASSWORD && \
-    psql --host=$1 --port=$PGPORT --username=$PGUSER --dbname=$2
+    psql --host=$PGHOST --port=$PGPORT --username=$PGUSER --dbname=$1
 }
 
 
 ################################################################################
 # Help                                                                         #
 ################################################################################
-USAGE_HELP="Usage: $command_name [host] [dbname]"
+USAGE_HELP="Usage: $command_name [dbname]"
 
 DETAILED_HELP="
 NAME
@@ -29,9 +29,9 @@ SYNOPSIS
 
 DESCRIPTION
 
-    Starts psql
+    Starts a psql session to connect to a Postgres database.
 
-    Syntax: $command_name [host] [dbname]
+    Syntax: $command_name [dbname]
 
     Options:
         -h       print usage
