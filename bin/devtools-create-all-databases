@@ -1,0 +1,53 @@
+#!/bin/bash
+
+set -u 
+
+. $(dirname "$0")/inc/env-values.sh 
+. $(dirname "$0")/inc/functions.sh 
+
+export command_name=`basename $0` 
+
+function main() {
+    check_help_args "$@"
+    if ($DEBUG); then 
+        pg_version=$(get_pgsql_version)
+        display_debug "Postgres version:$pg_version"
+    fi
+    
+    create_database accounting
+    create_database merchant
+    create_database paymentexport
+    create_database txexport
+}
+
+function create_database() {
+    display_info "CREATING database $1 ..."
+    run_pgsql "CREATE database \"$1\";"
+}
+
+################################################################################
+# Help                                                                         #
+################################################################################
+USAGE_HELP="Usage: $command_name"
+
+DETAILED_HELP="
+NAME
+    $command_name
+
+SYNOPSIS
+    $command_name
+
+DESCRIPTION
+
+    Creates all known databases in the local environment.
+
+    Syntax: $command_name
+
+    Options:
+        -h       print usage
+        --help   Print htis help
+
+"
+
+# call to main execution
+main "$@"
