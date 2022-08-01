@@ -15,6 +15,7 @@ function main() {
     fi
     
     create_database accountentry
+    create_database accountmovementsmock
     create_database accounting
     create_database merchant
     create_database paymentexport
