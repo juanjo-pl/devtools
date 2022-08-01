@@ -9,6 +9,7 @@ Scripts to help development process.  It has a docker composer with the followin
 ## Commands
 
 ### Database related
+* `devtools-create-all-databases`: Creates all known databases in the local environment.
 * `devtools-create-database`: Creates a database in the local environment.
 * `devtools-drop-database`: Drops a database in the local environment.
 * `devtools-psql`: Starts a psql session to connect to the local Postgres database.
