@@ -19,6 +19,7 @@ function main() {
     create_database accounting
     create_database billing
     create_database merchant
+    create_database notifications
     create_database paymentexport
     create_database transactions
     create_database txexport
