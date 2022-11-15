@@ -22,6 +22,8 @@ function main() {
     create_database notifications
     create_database organizations
     create_database paymentexport
+    create_database settlements
+    create_database subscription
     create_database transactions
     create_database txexport
 }

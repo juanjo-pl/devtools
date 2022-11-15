@@ -38,3 +38,6 @@ brew install libpq
 # devtools
 export PATH="$HOME/{YOUR_CUSTOM_PATH}/dev-tools/bin:$PATH"
 ```
+
+## TODO
+[ ] Check Kafka changing container: kafka.container.image=dennisameling/cp-kafka\:7.0.1-2
