@@ -1,0 +1,75 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka1:
+    image: wurstmeister/kafka:2.13-2.8.1
+    ports:
+      - target: 9093
+        published: 9093
+        protocol: tcp
+        mode: host
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://localhost:9093
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9093
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka2:
+    image: wurstmeister/kafka:2.13-2.8.1
+    ports:
+      - target: 9094
+        published: 9094
+        protocol: tcp
+        mode: host
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://localhost:9094
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  kafka3:
+    image: wurstmeister/kafka:2.13-2.8.1
+    ports:
+      - target: 9095
+        published: 9095
+        protocol: tcp
+        mode: host
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 3
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://localhost:9095
+      KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9095
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  postgres:
+    image: "postgres:12.11"
+    ports:
+      - "5432:5432"
+    tmpfs:
+      - /var/lib/postgresql/data:rw
+    environment:
+      - POSTGRES_DB=local_test_db
+      - POSTGRES_USER=devtools
+      - POSTGRES_PASSWORD=DEVELOPMENT
