@@ -5,7 +5,6 @@ Scripts to help development process.  It has a docker composer with the followin
 * Postgres database
 * Kafka broker
 
-
 ## Commands
 
 ### Database related
@@ -39,10 +38,29 @@ brew install libpq
 export PATH="$HOME/{YOUR_CUSTOM_PATH}/dev-tools/bin:$PATH"
 ```
 
-## Kafka Broker cluster
-If it is needed to have a cluster of kafka brokers for testing, you can replace [docker-compose.yml](./docker-compose.yml) with the contents of [docker-compose-kafka-cluster.yml](./docker-compose-kafka-cluster.yml).
+## Usage
+
+### Kafka
+**IMPORTANT**: kafka is no in the usual port `9092`, instead it is on `9093`.
+To access kafka you can need to go through `localhost:9093`.
+
+To access the UI for Apache Kafka, you can go to [http://localhost:8080](http://localhost:8080/).
+
+### Postgres
+By default this are the connection settings:
+* User: devtools
+* Password: DEVELOPMENT
+* Port: 5432
+
+
+## Kafka Cluster
+If it is needed to have a Kafka cluster of brokers for testing, you can replace [docker-compose.yml](./docker-compose.yml) with the contents of [docker-compose-kafka-cluster.yml](./docker-compose-kafka-cluster.yml).
 
 This will create three clusters available for `localhost:9093`, `localhost:9094` and `localhost:9095`.  For some unknown reason it was not possible to put a host in 9092 port.
+
+## References
+* Kakfa Docker Image: http://wurstmeister.github.io/kafka-docker/
+
 
 ## TODO
 [ ] Check Kafka changing container: kafka.container.image=dennisameling/cp-kafka\:7.0.1-2
