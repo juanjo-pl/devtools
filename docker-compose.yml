@@ -66,6 +66,8 @@ services:
       - "5432:5432"
     tmpfs:
       - /var/lib/postgresql/data:rw
+    volumes:
+      - ./postgres/init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
     environment:
       - POSTGRES_DB=local_test_db
       - POSTGRES_USER=devtools
