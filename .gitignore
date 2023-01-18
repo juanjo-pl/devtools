@@ -12,3 +12,4 @@ temp/
 
 # Project Specific
 output
+postgres/data
