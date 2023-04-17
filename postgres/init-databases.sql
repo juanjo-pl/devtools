@@ -2,6 +2,7 @@ create database accountentry;
 create database accountmovementsmock;
 create database accounting;
 create database billing;
+create database cards;
 create database merchant;
 create database notifications;
 create database organizations;

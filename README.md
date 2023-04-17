@@ -44,7 +44,7 @@ export PATH="$HOME/{YOUR_CUSTOM_PATH}/dev-tools/bin:$PATH"
 **IMPORTANT**: kafka is no in the usual port `9092`, instead it is on `9093`.
 To access kafka you can need to go through `localhost:9093`.
 
-To access the UI for Apache Kafka, you can go to [http://localhost:8080](http://localhost:8080/).
+To access the UI for Apache Kafka, you can go to [http://localhost:8092](http://localhost:8092).
 
 ### Postgres
 By default this are the connection settings:
