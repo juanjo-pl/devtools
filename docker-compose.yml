@@ -9,7 +9,7 @@ services:
 
   kafka-ui:
     container_name: kafka-ui
-    image: provectuslabs/kafka-ui:v0.6.2
+    image: provectuslabs/kafka-ui:v0.7.0
     ports:
       - target: 8080
         published: 8092
