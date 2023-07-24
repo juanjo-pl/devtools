@@ -61,7 +61,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: "postgres:12.11"
+    image: "postgres:12.14"
     ports:
       - "5432:5432"
     volumes:
