@@ -17,6 +17,7 @@ function main() {
     create_database accountentry
     create_database accounting
     create_database billing
+    create_database cards
     create_database documents
     create_database merchant
     create_database mockdata
