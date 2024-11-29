@@ -59,7 +59,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: "postgres:12.14"
+    image: "postgres:12.19"
     ports:
       - "5432:5432"
     volumes:
