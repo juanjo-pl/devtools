@@ -36,7 +36,7 @@ brew install libpq
 ### 3. Add commands to the path
 ```sh
 # devtools
-export PATH="$HOME/{YOUR_CUSTOM_PATH}/dev-tools/bin:$PATH"
+export PATH="$HOME/{YOUR_CUSTOM_PATH}/devtools/bin:$PATH"
 ```
 
 ## Usage
