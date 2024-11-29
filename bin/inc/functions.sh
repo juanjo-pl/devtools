@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 set -u
-. $(dirname "$0")/inc/env-values.sh 
+. $(dirname "$0")/env-values.sh
 
 function display_debug() {
     if ($DEBUG); then 
@@ -24,27 +24,37 @@ function display_help() {
 }
 
 function check_help_args() {
-    if [ $# -eq 0 ]; then 
+    if [[ $# -eq 0 ]]; then 
         return 0
     fi
 
-    if [ "$1" == "-h" ]; then
+    if [[ "$1" == "-h" ]]; then
         echo ${USAGE_HELP}
         exit 0
     fi
-    if [ "$1" == "--help" ]; then
+
+    if [[ "$1" == "--help" ]]; then
         display_help
         exit 0
     fi
 }
 
 function check_require_argument() {
-    if [ $# -eq 0 ]; then
+    if [[ $# -eq 0 ]]; then
         echo ${USAGE_HELP}
         exit 0
     fi
     check_help_args $@
 }
+
+function check_require_two_arguments() {
+    if [[ $# -ne 2 ]]; then
+        echo ${USAGE_HELP}
+        exit 0
+    fi
+    check_help_args $@
+}
+
 
 ################################################################################
 # Postgres                                                                     #
