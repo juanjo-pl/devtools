@@ -1,6 +1,6 @@
 #!/bin/zsh
 set -u
-. $(dirname "$0")/env-values.sh
+. $(dirname "$0")/inc/env-values.sh
 
 function display_debug() {
     if ($DEBUG); then 
