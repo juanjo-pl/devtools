@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -u 
+
+. $(dirname "$0")/inc/env-values.sh 
+. $(dirname "$0")/inc/functions.sh 
+
+export command_name=`basename $0` 
+
+function main() {
+    check_help_args "$@"
+
+    display_debug "Deleting all topics in the kafka broker"
+    topic_regex="event.*|payments.*|processing.*|table.*|documents|organization_balance"
+
+    echo docker exec -it kafka1 \
+        /opt/kafka_2.13-2.8.1/bin/kafka-topics.sh \
+        --bootstrap-server localhost:9092 \
+        --delete --topic "\"$topic_regex\""
+    
+}
+
+################################################################################
+# Help                                                                         #
+################################################################################
+USAGE_HELP="Usage: $command_name"
+    
+DETAILED_HELP="
+NAME
+    $command_name
+
+SYNOPSIS
+    $command_name
+
+DESCRIPTION
+
+    Deletes all topics in the kafka broker
+
+    Syntax: $command_name
+
+    Options:
+        -h       print usage
+        --help   Print htis help
+
+"
+
+# call to main execution
+main "$@"
