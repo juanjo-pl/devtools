@@ -13,7 +13,7 @@ function main() {
     display_debug "Deleting all topics in the kafka broker"
     topic_regex="event.*|payments.*|processing.*|table.*|documents|organization_balance"
 
-    echo docker exec -it kafka1 \
+    docker exec -it kafka1 \
         /opt/kafka_2.13-2.8.1/bin/kafka-topics.sh \
         --bootstrap-server localhost:9092 \
         --delete --topic "\"$topic_regex\""
