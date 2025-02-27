@@ -7,7 +7,7 @@ services:
 
   kafka-ui:
     container_name: kafka-ui
-    image: provectuslabs/kafka-ui:v0.7.2
+    image: ${KAFKA_UI_IMAGE}:${KAFKA_UI_IMAGE_VERSION}
     ports:
       - target: 8080
         published: 8092
@@ -19,7 +19,7 @@ services:
 
   kafka1:
     container_name: kafka1
-    image: wurstmeister/kafka:2.13-2.8.1
+    image: ${KAFKA_IMAGE}:${KAFKA_IMAGE_VERSION}
     ports:
       - target: 9093
         published: 9093
@@ -39,7 +39,7 @@ services:
 
   kafka2:
     container_name: kafka2
-    image: wurstmeister/kafka:2.13-2.8.1
+    image: ${KAFKA_IMAGE}:${KAFKA_IMAGE_VERSION}
     ports:
       - target: 9094
         published: 9094
@@ -59,7 +59,7 @@ services:
 
   postgres:
     container_name: postgres
-    image: "postgres:12.19"
+    image: postgres:${POSTGRES_IMAGE_VERSION}
     ports:
       - "5432:5432"
     volumes:

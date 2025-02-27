@@ -9,4 +9,4 @@ echo "DEVTOOLS_HOME: $DEVTOOLS_HOME"
 
 cd $DEVTOOLS_HOME
 
-docker compose -f $DEVTOOLS_HOME/docker-compose.yml stop
+docker compose -f $DEVTOOLS_HOME/docker-compose.yml --env-file devtools.env stop

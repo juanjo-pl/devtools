@@ -53,6 +53,12 @@ By default this are the connection settings:
 * Password: DEVELOPMENT
 * Port: 5432
 
+### Docker compose notes
+
+To check the final compose file you can use the following command to interpolate all variables.
+```sh
+docker compose --env-file devtools.env config
+```
 
 ## Kafka Cluster
 If it is needed to have a Kafka cluster of brokers for testing, you can replace [docker-compose.yml](./docker-compose.yml) with the contents of [docker-compose-kafka-cluster.yml](./docker-compose-kafka-cluster.yml).
