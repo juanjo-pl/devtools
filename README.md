@@ -4,6 +4,7 @@ Scripts to help development process.  It has a docker composer with the followin
 
 * Postgres database
 * Kafka broker
+* Kafka UI
 
 ## Commands
 
@@ -70,4 +71,5 @@ This will create three clusters available for `localhost:9093`, `localhost:9094`
 
 
 ## TODO
-[ ] Check Kafka changing container: kafka.container.image=dennisameling/cp-kafka\:7.0.1-2
+[ ] Change Kafka Container to version: kafka-to-version-3.5.2
+[ ] Change kafka UI to https://github.com/kafbat/kafka-ui/tree/main
