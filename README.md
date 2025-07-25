@@ -34,6 +34,12 @@ On macos you can install it with brew.
 brew install libpq
 ```
 
+After installing check the message to add it to the path, something like:
+```sh
+echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.zshrc
+```
+
+
 ### 3. Add commands to the path
 ```sh
 # devtools
