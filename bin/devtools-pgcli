@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -u 
+
+. $(dirname "$0")/inc/env-values.sh 
+. $(dirname "$0")/inc/functions.sh 
+
+export command_name=`basename $0` 
+
+function main() {
+    check_require_argument "$@"
+    
+    export PGPASSWORD=$PGPASSWORD && \
+    pgcli --host=$PGHOST --port=$PGPORT --username=$PGUSER --dbname=$1
+}
+
+
+################################################################################
+# Help                                                                         #
+################################################################################
+USAGE_HELP="Usage: $command_name [dbname]"
+
+DETAILED_HELP="
+NAME
+    $command_name
+
+SYNOPSIS
+    $command_name 
+
+DESCRIPTION
+
+    Starts a pscli session to connect to a Postgres database.
+
+    Syntax: $command_name [dbname]
+
+    Options:
+        -h       print usage
+        --help   Print this help
+
+"
+
+
+# call to main execution
+main "$@"
