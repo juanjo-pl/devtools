@@ -1,0 +1,8 @@
+# ======================================================
+# Kafka Clusters Configuration
+# Define all Kafka cluster-specific settings and related integrations.
+# ======================================================
+kafka:
+  clusters:
+    - name: devtools-local  # Unique name identifier for the Kafka cluster
+      bootstrap-servers: kafka1:9092,kafka2:9092  # List of Kafka broker addresses

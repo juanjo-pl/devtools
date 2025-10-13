@@ -76,7 +76,9 @@ docker compose --env-file devtools.env config
 ```
 
 ## Kafka Cluster
-If it is needed to have a Kafka cluster of brokers for testing, you can replace [docker-compose.yml](./docker-compose.yml) with the contents of [docker-compose-kafka-cluster.yml](./docker-compose-kafka-cluster.yml).
+By default there is a cluster configured of two kafka servers available in:
+* `localhost:9093`
+* `localhost:9094`
 
 This will create three clusters available for `localhost:9093`, `localhost:9094` and `localhost:9095`.  For some unknown reason it was not possible to put a host in 9092 port.
 
@@ -85,5 +87,6 @@ This will create three clusters available for `localhost:9093`, `localhost:9094`
 
 
 ## TODO
-[ ] Change Kafka Container to version: kafka-to-version-3.5.2
-[ ] Change kafka UI to https://github.com/kafbat/kafka-ui/tree/main
+* [x] Change kafka UI to [kafbat](https://github.com/kafbat/kafka-ui/tree/main). -> Done on `2025-10-13`.
+* [ ] Change Kafka Container to version: kafka-to-version-3.5.2
+
