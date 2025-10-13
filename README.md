@@ -14,6 +14,7 @@ Scripts to help development process.  It has a docker composer with the followin
 * `devtools-drop-database`: Drops a database in the local environment.
 * `devtools-recreate-database`: Drops and creates a database in the local environment.
 * `devtools-psql`: Starts a psql session to connect to the local Postgres database.
+* `devtools-pgcli`: Starts a pgcli session to connect to the local Postgres database.
 
 ### Container Related
 * `devtools-start`: brings the dev environment up. 
@@ -44,6 +45,13 @@ echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.zshrc
 ```sh
 # devtools
 export PATH="$HOME/{YOUR_CUSTOM_PATH}/devtools/bin:$PATH"
+```
+
+## Optional Requirements
+
+Add pgcli which is looks nices to write queries in the command line. 
+```sh
+brew install pgcli
 ```
 
 ## Usage
