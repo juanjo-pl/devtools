@@ -18,9 +18,12 @@ Scripts to help development process.  It has a docker composer with the followin
 
 ### Container Related
 * `devtools-start`: brings the dev environment up. 
-* `devtools-logs`: shows the container instances logs
-* `devtools-stop`: stops the dev environmet
-* `devtools-down`: stops and deletes the dev environement
+* `devtools-logs`: shows the container instances logs.
+* `devtools-stop`: stops the dev environment.
+* `devtools-down`: stops and deletes the dev environment.
+
+### Other Commands
+* `devtools-kafka-drop-topics`: Deletes all topics in the kafka broker.
 
 ## Requirements
 
@@ -88,5 +91,5 @@ This will create three clusters available for `localhost:9093`, `localhost:9094`
 
 ## TODO
 * [x] Change kafka UI to [kafbat](https://github.com/kafbat/kafka-ui/tree/main). -> Done on `2025-10-13`.
-* [ ] Change Kafka Container to version: kafka-to-version-3.5.2
+* [ ] Change Kafka Container for something newer.  Is really old, but it works in cluster mode.
 
